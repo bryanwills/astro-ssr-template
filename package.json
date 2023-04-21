@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^6.2.2",
-    "@astrojs/node": "^5.1.0",
+    "@prisma/client": "4.13.0",
     "astro": "^2.3.0"
+  },
+  "devDependencies": {
+    "prisma": "^4.13.0"
   }
 }

@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode = "prisma"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Standorte {
+  id    Int     @id @default(autoincrement())
+  title String
+  href  String
+  slug  String
+  adresse String
+  kurs Kurs[]
+}
+
+model Kurs {
+  id    Int     @id @default(autoincrement())
+  startTime DateTime
+  endTime DateTime
+  seats Int
+  user User[]
+  price Int
+  standorte Standorte @relation(fields: [standorteId], references: [id])
+  standorteId Int
+  kursCategory KursCategory @relation(fields: [kursCategoryId], references: [id])
+  kursCategoryId Int
+}
+
+model KursCategory {
+  id    Int     @id @default(autoincrement())
+  title String
+  kurs Kurs[]
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  vorname String
+  nachname String
+  email String
+  adresse String
+  stadt String
+  postleitzahl String
+  telefonnummer String
+  zahlungsart String
+  kurs Kurs @relation(fields: [kursId], references: [id])
+  kursId Int  
+}
