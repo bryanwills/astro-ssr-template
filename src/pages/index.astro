@@ -6,22 +6,13 @@ const test = Math.random()
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-    const StandorteWithCourseType = await prisma.standorte.findMany({
-      where: {
-        kurs: {
-          some: {
-            kursCategoryId: 1,
-          },
-        },
-      },
-    });
-
+const tester = prisma.standorte.findMany()
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<h1>Welcome to {test} <span class="text-gradient">Astro</span></h1>
-		<p>{StandorteWithCourseType}</p>
+		<p>{tester}</p>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
