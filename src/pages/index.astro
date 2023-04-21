@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-
-console.log("frontend")
-
+import { post } from './api/profile';
+post();
 const test = Math.random()
 ---
 
