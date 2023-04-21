@@ -1,12 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { get } from './endpoint.json';
 
 const test = Math.random()
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
-const tester = prisma.standorte.findMany()
+const tester = await get()
 ---
 
 <Layout title="Welcome to Astro.">
