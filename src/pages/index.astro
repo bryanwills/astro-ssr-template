@@ -1,10 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { get } from './endpoint.json';
+import { post } from './endpoint.json';
 
 const test = Math.random()
-const tester = await get()
+const tester = await post()
 ---
 
 <Layout title="Welcome to Astro.">

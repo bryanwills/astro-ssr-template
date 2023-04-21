@@ -1,7 +1,8 @@
-import { PrismaClient } from '@prisma/client'
-
-export function get() {
-    const prisma = new PrismaClient()
-    const tester = prisma.standorte.findMany()
-    return tester;
+export async function post() {
+	return new Response(JSON.stringify({ ok: true }), {
+		status: 200,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	})
 }
