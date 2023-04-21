@@ -3,8 +3,7 @@
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  url      = "prisma://aws-eu-central-1.prisma-data.com/?api_key=9mzBOphMef5R5drIlm87IVvr6FnAEwcjjkx7yxizTNVypZjfBTrUghLdo5r-zfbw"
   relationMode = "prisma"
 }
 
