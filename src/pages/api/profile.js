@@ -2,7 +2,7 @@
 import { PrismaClient } from '@prisma/client'
 export async function post(params, request) {
     const prisma = new PrismaClient()
-    const test =prisma.standorte.findMany();
+    const test = await prisma.standorte.findMany();
     console.log(test)
 
 	return new Response(JSON.stringify({ ok: true }), {
