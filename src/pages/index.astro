@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
-const shu = prisma.standorte.findMany()
+
+console.log("frontend")
 
 const test = Math.random()
 ---
