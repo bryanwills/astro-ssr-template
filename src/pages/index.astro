@@ -1,17 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import { post } from './endpoint.json';
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+const shu = prisma.standorte.findMany()
 
 const test = Math.random()
-const tester = await post()
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>{tester[0].title}</h1>
 		<h1>Welcome to {test} <span class="text-gradient">Astro</span></h1>
-		<p>{tester}</p>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
