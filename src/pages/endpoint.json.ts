@@ -1,8 +1,9 @@
+import { PrismaClient } from '@prisma/client'
+
 export async function post() {
-	return new Response(JSON.stringify({ ok: true }), {
-		status: 200,
-		headers: {
-			"Content-Type": "application/json",
-		},
-	})
+
+    const prisma = new PrismaClient()
+    const standorte = await prisma.standorte.findMany()
+
+	return standorte
 }
