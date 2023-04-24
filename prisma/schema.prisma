@@ -1,54 +1,45 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
 
 datasource db {
   provider = "mysql"
-  url      = "prisma://aws-eu-central-1.prisma-data.com/?api_key=9mzBOphMef5R5drIlm87IVvr6FnAEwcjjkx7yxizTNVypZjfBTrUghLdo5r-zfbw"
-  relationMode = "prisma"
-}
-
-generator client {
-  provider = "prisma-client-js"
-}
-
-model Standorte {
-  id    Int     @id @default(autoincrement())
-  title String
-  href  String
-  slug  String
-  adresse String
-  kurs Kurs[]
+  url      = "prisma://aws-eu-central-1.prisma-data.com/?api_key=VgnFXTKJeububXkmqhQqyXnD0nIxzTtT4CLu4n7Iw6V-BG8n1UwNCUk3b-gsMGWM"
 }
 
 model Kurs {
-  id    Int     @id @default(autoincrement())
-  startTime DateTime
-  endTime DateTime
-  seats Int
-  user User[]
-  price Int
-  standorte Standorte @relation(fields: [standorteId], references: [id])
-  standorteId Int
-  kursCategory KursCategory @relation(fields: [kursCategoryId], references: [id])
+  id             Int      @id @default(autoincrement())
+  startTime      DateTime
+  endTime        DateTime
+  seats          Int
+  price          Int
+  standorteId    Int
   kursCategoryId Int
 }
 
 model KursCategory {
-  id    Int     @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   title String
-  kurs Kurs[]
+}
+
+model Standorte {
+  id      Int    @id @default(autoincrement())
+  title   String
+  href    String
+  slug    String
+  adresse String
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  vorname String
-  nachname String
-  email String
-  adresse String
-  stadt String
-  postleitzahl String
+  id            Int    @id @default(autoincrement())
+  vorname       String
+  nachname      String
+  email         String
+  adresse       String
+  stadt         String
+  postleitzahl  String
   telefonnummer String
-  zahlungsart String
-  kurs Kurs @relation(fields: [kursId], references: [id])
-  kursId Int  
+  zahlungsart   String
+  kursId        Int
 }

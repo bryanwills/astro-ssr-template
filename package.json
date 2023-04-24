@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "node dist/server/entry.mjs",
-    "build": "npx prisma generate && npx prisma generate --data-proxy && astro build",
+    "postinstall": "npx prisma generate --data-proxy",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
